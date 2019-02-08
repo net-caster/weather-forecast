@@ -27,7 +27,6 @@
                      temperatureDescription.textContent = summary;
                      locationTimezone.textContent = data.timezone;
 
-                     console.log(icon);
                      let celsius = (temperature - 32) * (5 / 9);
 
                      setIcons(icon, document.querySelector('.icon'));
