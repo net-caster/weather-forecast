@@ -1,3 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  height: 100vh;
+  background: linear-gradient(#5cafe7, #db7d31);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.location,
+.temperature {
+  height: 30vh;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.degree-section {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.degree-section .symbol {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-left: 5px;
+}
+.degree-section .degree {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-left: 5px;
+}
+.degree-section h2 {
+  font-size: 40px;
+}
 
 /*# sourceMappingURL=main.css.map */
