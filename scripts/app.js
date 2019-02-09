@@ -13,7 +13,7 @@
              lat = position.coords.latitude;
 
              const proxy = "https://cors-anywhere.herokuapp.com/";
-             const api = `${proxy}https://api.darksky.net/forecast/f1bc1a5750c2ea93d9b8f46c994413a4/${lat},${long}`;
+             const api = `${proxy}https://api.darksky.net/forecast/f1bc1a5750c2ea93d9b8f46c994413a4/${lat},${long}?units=uk2`;
 
              fetch(api)
                  .then(response => {
@@ -23,21 +23,21 @@
                      console.log(data);
                      const { temperature, summary, icon } = data.currently;
 
-                     temperatureDegree.textContent = temperature;
+                     temperatureDegree.textContent = Math.floor(temperature);
                      temperatureDescription.textContent = summary;
                      locationTimezone.textContent = data.timezone;
 
-                     let celsius = (temperature - 32) * (5 / 9);
+                     let fahrenheit = temperature * 1.8 + 32;
 
                      setIcons(icon, document.querySelector('.icon'));
 
                      temperatureSection.addEventListener('click', () => {
-                         if (degree.textContent === 'F') {
-                             degree.textContent = 'C';
-                             temperatureDegree.textContent = Math.floor(celsius);
-                         } else {
+                         if (degree.textContent === 'C') {
                              degree.textContent = 'F';
-                             temperatureDegree.textContent = temperature;
+                             temperatureDegree.textContent = Math.floor(fahrenheit);
+                         } else {
+                             degree.textContent = 'C';
+                             temperatureDegree.textContent = Math.floor(temperature);
                          }
                      });
                  });
