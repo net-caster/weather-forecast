@@ -36,13 +36,10 @@ header .instructions {
 }
 
 .list-container {
-  display: flex;
   position: absolute;
-  top: 15%;
+  top: 10%;
   justify-content: center;
-  transform: translate(0, 5%);
   padding-bottom: 50px;
-  max-height: auto;
 }
 .list-container ul {
   list-style: none;
@@ -259,6 +256,11 @@ footer #owm-link {
 @media only screen and (max-width: 1100px) {
   header {
     display: none;
+  }
+}
+@media only screen and (max-height: 800px) {
+  .list-container {
+    transform: translate(0, 10%);
   }
 }
 
