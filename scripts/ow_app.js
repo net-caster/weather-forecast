@@ -15,7 +15,7 @@ const iconUrl = 'http://openweathermap.org/img/w/';
 
 /* ------------- Set info-box variables --------------- */
 
-const weatherBox = document.getElementById('weather-container');
+const weatherBox = document.getElementById('weather-info');
 
 const cityLocation = document.getElementById('location');
 
@@ -55,7 +55,7 @@ async function getCity(field) {
 
     const data = await response.json();
 
-    const regex = /\b(?!de|under|upon|la\b)[a-z]+/ig;
+    const regex = /\b(?!de|under|upon|la|in|on\b)[a-z]+/ig;
 
     let value = field.value.toLowerCase().replace(regex, match => {
         return match.charAt(0).toUpperCase() + match.slice(1);

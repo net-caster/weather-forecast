@@ -13,6 +13,21 @@ body {
   font-family: "Noto Sans SC", sans-serif;
 }
 
+header {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  background: #ff7b00;
+  text-align: center;
+  top: 0;
+}
+header .instructions {
+  font-size: 18px;
+  position: relative;
+  top: 5px;
+  color: black;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -27,18 +42,7 @@ body {
   justify-content: center;
   padding: 30px 0;
 }
-.list-container .error-div {
-  position: absolute;
-  background: #e4e4e4;
-  border-radius: 5px;
-  color: #1a1a1a;
-  font-family: "Noto Sans SC", sans-serif;
-  font-weight: 600;
-  padding: 20px;
-  display: none;
-}
-
-ul {
+.list-container ul {
   list-style: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -48,17 +52,31 @@ ul {
   width: 300px;
   text-align: center;
 }
-ul li {
+.list-container ul li {
   padding: 5px;
   background: #ebebeb;
   border-radius: 2px;
   margin-bottom: 10px;
   color: black;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
-ul li:hover {
+.list-container ul li:hover {
   cursor: pointer;
   color: #ff9b31;
   background: black;
+  border: 1px solid #ff7b00;
+}
+.list-container .error-div {
+  position: absolute;
+  background: #e4e4e4;
+  border-radius: 5px;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 600;
+  padding: 20px;
+  display: none;
+}
+.list-container .error-div #error {
+  color: black;
 }
 
 input[type=text] {
@@ -70,7 +88,7 @@ input[type=text] {
   text-align: center;
   padding: 14px 10px;
   border-radius: 25px;
-  box-shadow: inset 0 0 5px black;
+  border: 2px solid #ff7b00;
   transition: all ease 0.3s;
   top: 10%;
   color: black;
@@ -80,21 +98,36 @@ input[type=text]:focus {
   outline: none;
 }
 
-#weather-container {
+.weather-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  height: 600px;
+  top: 15%;
+}
+.weather-container #weather-info {
   position: absolute;
   display: none;
   flex-direction: column;
   text-align: center;
   align-items: center;
   color: #0c0c0c;
-  top: 20%;
-  padding: 30px 0;
+  top: 10%;
 }
-#weather-container .title-div {
+.weather-container #weather-info .title-div {
   font-family: "Saira Extra Condensed", sans-serif;
   font-size: 1.5em;
+  width: 400px;
+  line-height: 3.5rem;
 }
-#weather-container .info-div {
+.weather-container #weather-info .title-div h1.title {
+  text-align: center;
+}
+.weather-container #weather-info .title-div #location {
+  color: #ff7b00;
+}
+.weather-container #weather-info .info-div {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -105,7 +138,7 @@ input[type=text]:focus {
   font-size: 18px;
   top: 100%;
 }
-#weather-container .info-div .temp-container {
+.weather-container #weather-info .info-div .temp-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -115,27 +148,27 @@ input[type=text]:focus {
   width: 200px;
   font-family: "Staatliches", cursive;
 }
-#weather-container .info-div .temp-container h2#temp {
+.weather-container #weather-info .info-div .temp-container h2#temp {
   font-size: 3em;
   font-weight: 500;
 }
-#weather-container .info-div .temp-container span#symbol {
+.weather-container #weather-info .info-div .temp-container span#symbol {
   margin-bottom: 20px;
   margin-left: 5px;
   font-size: 2.5em;
 }
-#weather-container .info-div .temp-container span#degree {
+.weather-container #weather-info .info-div .temp-container span#degree {
   margin-bottom: 20px;
   margin-left: 5px;
   font-size: 2em;
 }
-#weather-container .info-div .temp-container #icon {
+.weather-container #weather-info .info-div .temp-container #icon {
   width: 50px;
   height: 50px;
   background: 100%;
   margin-right: 10px;
 }
-#weather-container .info-div .min-and-max {
+.weather-container #weather-info .info-div .min-and-max {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -145,16 +178,16 @@ input[type=text]:focus {
   height: 150px;
   width: 200px;
 }
-#weather-container .info-div .min-and-max p {
+.weather-container #weather-info .info-div .min-and-max p {
   line-height: 3em;
 }
-#weather-container .info-div .min-and-max span {
+.weather-container #weather-info .info-div .min-and-max span {
   margin-left: 20px;
 }
-#weather-container .info-div .min-and-max .minmax {
+.weather-container #weather-info .info-div .min-and-max .minmax {
   color: gray;
 }
-#weather-container .info-div .description-container {
+.weather-container #weather-info .info-div .description-container {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -163,7 +196,7 @@ input[type=text]:focus {
   width: 400px;
   top: 37%;
 }
-#weather-container .info-div .misc-container {
+.weather-container #weather-info .info-div .misc-container {
   position: absolute;
   display: inline-flex;
   justify-content: center;
@@ -171,7 +204,7 @@ input[type=text]:focus {
   top: 55%;
   line-height: 1.5em;
 }
-#weather-container .info-div .misc-container .info-1-container {
+.weather-container #weather-info .info-div .misc-container .info-1-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -180,10 +213,10 @@ input[type=text]:focus {
   text-align: center;
   margin-bottom: 20px;
 }
-#weather-container .info-div .misc-container .info-1-container p#humidity {
+.weather-container #weather-info .info-div .misc-container .info-1-container p#humidity {
   padding-bottom: 15px;
 }
-#weather-container .info-div .misc-container .info-2-container {
+.weather-container #weather-info .info-div .misc-container .info-2-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -191,17 +224,33 @@ input[type=text]:focus {
   height: 150px;
   text-align: center;
 }
-#weather-container .info-div .misc-container .info-2-container p#pressure {
+.weather-container #weather-info .info-div .misc-container .info-2-container p#pressure {
   padding-bottom: 15px;
 }
-#weather-container .info-div .misc-container p.misc-p {
+.weather-container #weather-info .info-div .misc-container p.misc-p {
   padding-top: 20px;
   color: gray;
 }
 
-h1.title {
+footer {
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  background: #ff7b00;
+  bottom: 0;
   text-align: center;
-  padding: 20px;
+}
+footer span {
+  color: black;
+  font-size: 12px;
+  margin-left: 10px;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+footer #owm-link {
+  margin: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
