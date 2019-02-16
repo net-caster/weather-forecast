@@ -10,9 +10,8 @@ const errorDiv = document.querySelector('div.error-div');
 /* ---------- Store API information ----------- */
 
 const apiKey = '&APPID=2359672f89e1414ca7dce9d3017adc69';
-const apiUrl = `api.openweathermap.org/data/2.5/weather?id=`;
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=`;
 const iconUrl = 'http://openweathermap.org/img/w/';
-const proxy = "https://cors-anywhere.herokuapp.com/";
 
 /* ------------- Set info-box variables --------------- */
 
