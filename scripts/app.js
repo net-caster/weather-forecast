@@ -53,3 +53,23 @@
          return skycons.set(iconID, Skycons[currentIcon]);
      }
  });
+
+ /* function convertDegrees(tempUnits) {
+        return tempUnits * 1.8 + 32;
+    }
+
+    tempDisplay.addEventListener('click', () => {
+        if (degreeSymbol.textContent === 'C') {
+            degreeSymbol.textContent = 'F';
+            tempDisplay.textContent = Math.floor(convertDegrees(temp));
+            maxTemp.textContent = Math.floor(convertDegrees(temp_max));
+            minTemp.textContent = Math.floor(convertDegrees(temp_min));
+
+        } else {
+            degreeSymbol.textContent = 'C';
+            tempDisplay.textContent = Math.floor(temp);
+            maxTemp.textContent = `${temp_max}`;
+            minTemp.textContent = `${temp_min}`;
+        }
+        console.log(tempDisplay);
+    }); */

@@ -135,43 +135,7 @@ async function pullData(city) {
 
     weatherBox.style.display = 'flex';
 
-    /* function convertDegrees(tempUnits) {
-        return tempUnits * 1.8 + 32;
-    }
-
-    // let fahrenheit = temp * 1.8 + 32;
-
-    tempDisplay.addEventListener('click', () => {
-        if (degreeSymbol.textContent === 'C') {
-            degreeSymbol.textContent = 'F';
-            tempDisplay.textContent = Math.floor(convertDegrees(temp));
-            maxTemp.textContent = Math.floor(convertDegrees(temp_max));
-            minTemp.textContent = Math.floor(convertDegrees(temp_min));
-
-        } else {
-            degreeSymbol.textContent = 'C';
-            tempDisplay.textContent = Math.floor(temp);
-            maxTemp.textContent = `${temp_max}`;
-            minTemp.textContent = `${temp_min}`;
-        }
-        console.log(tempDisplay);
-    }); */
-
 }
-
-/* -------------- Convert degrees to wind direction ---------------- */
-
-/* const calculateWindDirection = degree => {
-    if (degree > 337.5) return 'North';
-    if (degree > 292.5) return 'NorthWest';
-    if (degree > 247.5) return 'West';
-    if (degree > 202.5) return 'SouthWest';
-    if (degree > 157.5) return 'South';
-    if (degree > 122.5) return 'SouthEast';
-    if (degree > 67.5) return 'East';
-    if (degree > 22.5) { return 'NorthEast'; }
-    return 'North';
-} */
 
 /* -------------- Execute search on "Enter" --------------- */
 
