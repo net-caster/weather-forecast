@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC');
 @import url('https://fonts.googleapis.com/css?family=Staatliches');
+//--------------------------------------------------------------------------
 $main-font: 'Noto Sans SC',
 sans-serif;
 $title-font: 'Saira Extra Condensed',
 sans-serif;
 $degrees: 'Staatliches',
 cursive;
+//--------------------------------------------------------------------------
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: rgb(238, 238, 238);
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(rgb(166, 219, 255), rgb(253, 225, 183));
+    background: rgb(27, 27, 27);
     font-family: $main-font;
 }
 
@@ -31,9 +33,10 @@ body {
     position: absolute;
     top: 20%;
     justify-content: center;
+    padding: 30px 0;
     & .error-div {
         position: absolute;
-        background: rgba(228, 228, 228, 0.5);
+        background: rgb(228, 228, 228);
         border-radius: 5px;
         color: rgb(26, 26, 26);
         font-family: $main-font;
@@ -54,10 +57,10 @@ ul {
     text-align: center;
     & li {
         padding: 5px;
-        background: rgba(235, 235, 235, 0.5);
+        background: rgb(235, 235, 235);
         border-radius: 2px;
         margin-bottom: 10px;
-        // border: 1px solid gray;
+        color: black;
         &:hover {
             cursor: pointer;
             color: rgb(255, 155, 49);
@@ -78,6 +81,7 @@ input[type="text"] {
     box-shadow: inset 0 0 5px black;
     transition: all ease 0.3s;
     top: 10%;
+    color: black;
     &:focus {
         width: 300px;
         outline: none;
@@ -92,6 +96,7 @@ input[type="text"] {
     align-items: center;
     color: rgb(12, 12, 12);
     top: 20%;
+    padding: 30px 0;
     & .title-div {
         font-family: $title-font;
         font-size: 1.5em;
@@ -101,7 +106,7 @@ input[type="text"] {
         display: flex;
         justify-content: center;
         align-content: center;
-        background: rgba(238, 238, 238, 0.5);
+        // background: rgba(238, 238, 238, 0.5);
         border-radius: 2px;
         height: 400px;
         width: 400px;
@@ -153,6 +158,9 @@ input[type="text"] {
             & span {
                 margin-left: 20px;
             }
+            & .minmax {
+                color: gray;
+            }
         }
         & .description-container {
             position: absolute;
@@ -162,8 +170,8 @@ input[type="text"] {
             height: 60px;
             width: 400px;
             top: 37%;
-            border-bottom: 1px solid gray;
-            border-top: 1px solid gray;
+            // border-bottom: 1px solid rgb(0, 0, 0);
+            // border-top: 1px solid rgb(0, 0, 0);
         }
         & .misc-container {
             position: absolute;
@@ -182,7 +190,7 @@ input[type="text"] {
                 text-align: center;
                 margin-bottom: 20px;
                 & p#humidity {
-                    border-bottom: 1px solid gray;
+                    // border-bottom: 1px solid rgb(0, 0, 0);
                     padding-bottom: 15px;
                 }
             }
@@ -194,12 +202,13 @@ input[type="text"] {
                 height: 150px;
                 text-align: center;
                 & p#pressure {
-                    border-bottom: 1px solid gray;
+                    // border-bottom: 1px solid rgb(0, 0, 0);
                     padding-bottom: 15px;
                 }
             }
             & p.misc-p {
                 padding-top: 20px;
+                color: gray;
             }
         }
     }
@@ -208,10 +217,4 @@ input[type="text"] {
 h1.title {
     text-align: center;
     padding: 20px;
-}
-
-@media only screen and (min-height: 900px) {
-    body {
-        height: 100vh;
-    }
 }

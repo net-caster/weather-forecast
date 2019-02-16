@@ -5,11 +5,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: #eeeeee;
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(#a6dbff, #fde1b7);
+  background: #1b1b1b;
   font-family: "Noto Sans SC", sans-serif;
 }
 
@@ -25,10 +25,11 @@ body {
   position: absolute;
   top: 20%;
   justify-content: center;
+  padding: 30px 0;
 }
 .list-container .error-div {
   position: absolute;
-  background: rgba(228, 228, 228, 0.5);
+  background: #e4e4e4;
   border-radius: 5px;
   color: #1a1a1a;
   font-family: "Noto Sans SC", sans-serif;
@@ -49,9 +50,10 @@ ul {
 }
 ul li {
   padding: 5px;
-  background: rgba(235, 235, 235, 0.5);
+  background: #ebebeb;
   border-radius: 2px;
   margin-bottom: 10px;
+  color: black;
 }
 ul li:hover {
   cursor: pointer;
@@ -71,6 +73,7 @@ input[type=text] {
   box-shadow: inset 0 0 5px black;
   transition: all ease 0.3s;
   top: 10%;
+  color: black;
 }
 input[type=text]:focus {
   width: 300px;
@@ -85,6 +88,7 @@ input[type=text]:focus {
   align-items: center;
   color: #0c0c0c;
   top: 20%;
+  padding: 30px 0;
 }
 #weather-container .title-div {
   font-family: "Saira Extra Condensed", sans-serif;
@@ -95,7 +99,6 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
   align-content: center;
-  background: rgba(238, 238, 238, 0.5);
   border-radius: 2px;
   height: 400px;
   width: 400px;
@@ -148,6 +151,9 @@ input[type=text]:focus {
 #weather-container .info-div .min-and-max span {
   margin-left: 20px;
 }
+#weather-container .info-div .min-and-max .minmax {
+  color: gray;
+}
 #weather-container .info-div .description-container {
   position: absolute;
   display: flex;
@@ -156,8 +162,6 @@ input[type=text]:focus {
   height: 60px;
   width: 400px;
   top: 37%;
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
 }
 #weather-container .info-div .misc-container {
   position: absolute;
@@ -177,7 +181,6 @@ input[type=text]:focus {
   margin-bottom: 20px;
 }
 #weather-container .info-div .misc-container .info-1-container p#humidity {
-  border-bottom: 1px solid gray;
   padding-bottom: 15px;
 }
 #weather-container .info-div .misc-container .info-2-container {
@@ -189,22 +192,16 @@ input[type=text]:focus {
   text-align: center;
 }
 #weather-container .info-div .misc-container .info-2-container p#pressure {
-  border-bottom: 1px solid gray;
   padding-bottom: 15px;
 }
 #weather-container .info-div .misc-container p.misc-p {
   padding-top: 20px;
+  color: gray;
 }
 
 h1.title {
   text-align: center;
   padding: 20px;
-}
-
-@media only screen and (min-height: 900px) {
-  body {
-    height: 100vh;
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
