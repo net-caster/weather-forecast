@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC');
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+$main-font: 'Noto Sans SC',
+sans-serif;
+$title-font: 'Saira Extra Condensed',
+sans-serif;
+$degrees: 'Staatliches',
+cursive;
 * {
     margin: 0;
     padding: 0;
@@ -6,39 +15,197 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(rgb(92, 175, 231), rgb(219, 125, 49));
+    background: linear-gradient(rgb(166, 219, 255), rgb(253, 225, 183));
+    font-family: $main-font;
+}
+
+.container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
 }
 
-.location,
-.temperature {
-    height: 30vh;
-    width: 50%;
+.list-container {
     display: flex;
-    justify-content: space-around;
+    position: absolute;
+    top: 20%;
+    justify-content: center;
+    & .error-div {
+        position: absolute;
+        background: rgba(228, 228, 228, 0.5);
+        border-radius: 5px;
+        color: rgb(26, 26, 26);
+        font-family: $main-font;
+        font-weight: 600;
+        padding: 20px;
+        display: none;
+    }
+}
+
+ul {
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgb(46, 24, 0);
+    line-height: 2rem;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    & li {
+        padding: 5px;
+        background: rgba(235, 235, 235, 0.5);
+        border-radius: 2px;
+        margin-bottom: 10px;
+        // border: 1px solid gray;
+        &:hover {
+            cursor: pointer;
+            color: rgb(255, 155, 49);
+            background: black;
+        }
+    }
+}
+
+input[type="text"] {
+    position: absolute;
+    border: 0;
+    width: 200px;
+    font-family: $main-font;
+    font-weight: 600;
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: 25px;
+    box-shadow: inset 0 0 5px black;
+    transition: all ease 0.3s;
+    top: 10%;
+    &:focus {
+        width: 300px;
+        outline: none;
+    }
+}
+
+#weather-container {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    text-align: center;
     align-items: center;
+    color: rgb(12, 12, 12);
+    top: 20%;
+    & .title-div {
+        font-family: $title-font;
+        font-size: 1.5em;
+    }
+    & .info-div {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        background: rgba(238, 238, 238, 0.5);
+        border-radius: 2px;
+        height: 400px;
+        width: 400px;
+        font-size: 18px;
+        top: 100%;
+        & .temp-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            height: 150px;
+            width: 200px;
+            font-family: $degrees;
+            & h2#temp {
+                font-size: 3em;
+                font-weight: 500;
+                cursor: pointer;
+            }
+            & span#symbol {
+                margin-bottom: 20px;
+                margin-left: 5px;
+                font-size: 2.5em;
+            }
+            span#degree {
+                margin-bottom: 20px;
+                margin-left: 5px;
+                font-size: 2em;
+            }
+            & #icon {
+                width: 50px;
+                height: 50px;
+                background: 100%;
+                margin-right: 10px;
+            }
+        }
+        & .min-and-max {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+            height: 150px;
+            width: 200px;
+            & p {
+                line-height: 3em;
+            }
+            & span {
+                margin-left: 20px;
+            }
+        }
+        & .description-container {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 400px;
+            top: 37%;
+            border-bottom: 1px solid gray;
+            border-top: 1px solid gray;
+        }
+        & .misc-container {
+            position: absolute;
+            display: inline-flex;
+            justify-content: center;
+            align-content: center;
+            // text-align: center;
+            top: 55%;
+            line-height: 1.5em;
+            & .info-1-container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                height: 150px;
+                text-align: center;
+                margin-bottom: 20px;
+                & p#humidity {
+                    border-bottom: 1px solid gray;
+                    padding-bottom: 15px;
+                }
+            }
+            & .info-2-container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                height: 150px;
+                text-align: center;
+                & p#pressure {
+                    border-bottom: 1px solid gray;
+                    padding-bottom: 15px;
+                }
+            }
+            & p.misc-p {
+                padding-top: 20px;
+            }
+        }
+    }
 }
 
-.degree-section {
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
-    & .symbol {
-        font-weight: 600;
-        font-size: 1.5rem;
-        margin-left: 5px;
-    }
-    & .degree {
-        font-weight: 600;
-        font-size: 1.5rem;
-        margin-left: 5px;
-    }
-    & h2 {
-        font-size: 40px;
-    }
+h1.title {
+    text-align: center;
+    padding: 20px;
 }
