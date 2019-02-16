@@ -44,9 +44,8 @@ header {
 }
 
 .list-container {
-    // display: flex;
     position: absolute;
-    top: 10%;
+    top: 5%;
     justify-content: center;
     padding-bottom: 50px;
     & ul {
@@ -55,7 +54,6 @@ header {
         font-weight: 600;
         color: rgb(46, 24, 0);
         line-height: 2rem;
-        // padding: 10px;
         width: 300px;
         text-align: center;
         & li {
@@ -113,7 +111,7 @@ input[type="text"] {
     justify-content: center;
     padding: 30px 0;
     height: 600px;
-    top: 15%;
+    transform: translate(0, 70%);
     & #weather-info {
         position: absolute;
         display: none;
@@ -140,7 +138,6 @@ input[type="text"] {
             display: flex;
             justify-content: center;
             align-content: center;
-            // background: rgba(238, 238, 238, 0.5);
             border-radius: 2px;
             height: 400px;
             width: 400px;
@@ -256,7 +253,6 @@ footer {
     & span {
         color: black;
         font-size: 12px;
-        margin-left: 10px;
     }
     & a {
         color: white;
