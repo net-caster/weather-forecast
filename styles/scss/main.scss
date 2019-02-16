@@ -127,6 +127,7 @@ input[type="text"] {
             font-size: 1.5em;
             width: 400px;
             line-height: 3.5rem;
+            margin-bottom: 20px;
             & h1.title {
                 text-align: center;
             }
@@ -151,7 +152,7 @@ input[type="text"] {
                 justify-content: center;
                 align-items: center;
                 padding: 10px;
-                height: 150px;
+                height: 120px;
                 width: 200px;
                 font-family: $degrees;
                 & h2#temp {
@@ -183,7 +184,7 @@ input[type="text"] {
                 justify-content: center;
                 align-content: center;
                 padding: 10px;
-                height: 150px;
+                height: 120px;
                 width: 200px;
                 & p {
                     line-height: 3em;
@@ -200,19 +201,16 @@ input[type="text"] {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 60px;
+                height: 50px;
                 width: 400px;
-                top: 37%;
-                // border-bottom: 1px solid rgb(0, 0, 0);
-                // border-top: 1px solid rgb(0, 0, 0);
+                top: 30%;
             }
             & .misc-container {
                 position: absolute;
                 display: inline-flex;
                 justify-content: center;
                 align-content: center;
-                // text-align: center;
-                top: 55%;
+                top: 45%;
                 line-height: 1.5em;
                 & .info-1-container {
                     position: relative;

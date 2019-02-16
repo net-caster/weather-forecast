@@ -120,6 +120,7 @@ input[type=text]:focus {
   font-size: 1.5em;
   width: 400px;
   line-height: 3.5rem;
+  margin-bottom: 20px;
 }
 .weather-container #weather-info .title-div h1.title {
   text-align: center;
@@ -144,7 +145,7 @@ input[type=text]:focus {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  height: 150px;
+  height: 120px;
   width: 200px;
   font-family: "Staatliches", cursive;
 }
@@ -175,7 +176,7 @@ input[type=text]:focus {
   justify-content: center;
   align-content: center;
   padding: 10px;
-  height: 150px;
+  height: 120px;
   width: 200px;
 }
 .weather-container #weather-info .info-div .min-and-max p {
@@ -192,16 +193,16 @@ input[type=text]:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 50px;
   width: 400px;
-  top: 37%;
+  top: 30%;
 }
 .weather-container #weather-info .info-div .misc-container {
   position: absolute;
   display: inline-flex;
   justify-content: center;
   align-content: center;
-  top: 55%;
+  top: 45%;
   line-height: 1.5em;
 }
 .weather-container #weather-info .info-div .misc-container .info-1-container {
