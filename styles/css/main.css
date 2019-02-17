@@ -40,7 +40,7 @@ header .instructions {
   position: absolute;
   justify-content: center;
   padding-bottom: 50px;
-  top: 0;
+  top: 200px;
 }
 .list-container ul {
   list-style: none;
@@ -104,7 +104,7 @@ input[type=text]:focus {
   justify-content: center;
   padding-bottom: 30px;
   height: 600px;
-  top: 100px;
+  top: 120px;
 }
 .weather-container #weather-info {
   position: absolute;
@@ -258,10 +258,10 @@ footer #owm-link {
     display: none;
   }
 }
-@media only screen and (max-height: 800px) {
-  .list-container {
-    transform: translate(0, 30%);
-  }
-}
+/* @media only screen and (max-height: 800px) {
+    .list-container {
+        transform: translate(0, 30%);
+    }
+} */
 
 /*# sourceMappingURL=main.css.map */

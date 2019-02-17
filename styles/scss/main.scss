@@ -48,7 +48,7 @@ header {
     position: absolute;
     justify-content: center;
     padding-bottom: 50px;
-    top: 0;
+    top: 200px;
     & ul {
         list-style: none;
         font-size: 0.9rem;
@@ -112,7 +112,7 @@ input[type="text"] {
     justify-content: center;
     padding-bottom: 30px;
     height: 600px;
-    top: 100px;
+    top: 120px;
     & #weather-info {
         position: absolute;
         display: none;
@@ -270,8 +270,9 @@ footer {
     }
 }
 
-@media only screen and (max-height: 800px) {
+
+/* @media only screen and (max-height: 800px) {
     .list-container {
         transform: translate(0, 30%);
     }
-}
+} */
