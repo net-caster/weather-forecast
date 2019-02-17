@@ -36,8 +36,9 @@ header .instructions {
 }
 
 .list-container {
+  display: flex;
   position: absolute;
-  top: 5%;
+  top: 15%;
   justify-content: center;
   padding-bottom: 50px;
 }
@@ -259,7 +260,7 @@ footer #owm-link {
 }
 @media only screen and (max-height: 800px) {
   .list-container {
-    transform: translate(0, 15%);
+    transform: translate(0, 40%);
   }
 }
 
