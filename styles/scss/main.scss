@@ -64,6 +64,7 @@ header {
             margin-bottom: 10px;
             color: black;
             border: 1px solid rgba(0, 0, 0, 0);
+            transition: all ease 0.1s;
             &:hover {
                 cursor: pointer;
                 color: rgb(255, 155, 49);
@@ -268,11 +269,13 @@ footer {
     header {
         display: none;
     }
-}
-
-
-/* @media only screen and (max-height: 800px) {
-    .list-container {
-        transform: translate(0, 30%);
+    input[type="text"] {
+        transform: translate(0, 150%);
     }
-} */
+    .list-container {
+        top: 150px;
+    }
+    .weather-container {
+        top: 80px;
+    }
+}

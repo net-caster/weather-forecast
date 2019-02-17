@@ -58,6 +58,7 @@ header .instructions {
   margin-bottom: 10px;
   color: black;
   border: 1px solid rgba(0, 0, 0, 0);
+  transition: all ease 0.1s;
 }
 .list-container ul li:hover {
   cursor: pointer;
@@ -257,11 +258,18 @@ footer #owm-link {
   header {
     display: none;
   }
+
+  input[type=text] {
+    transform: translate(0, 150%);
+  }
+
+  .list-container {
+    top: 150px;
+  }
+
+  .weather-container {
+    top: 80px;
+  }
 }
-/* @media only screen and (max-height: 800px) {
-    .list-container {
-        transform: translate(0, 30%);
-    }
-} */
 
 /*# sourceMappingURL=main.css.map */
