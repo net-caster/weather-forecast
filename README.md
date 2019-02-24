@@ -1,3 +1,5 @@
+# WEATHER APP
+
 A simple app that shows the current weather in the selected location.
 
 What I learned while working on this project:
