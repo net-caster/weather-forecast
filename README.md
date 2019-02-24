@@ -2,6 +2,7 @@ A simple app that shows the current weather in the selected location.
 
 What I learned while working on this project:
 
+
 How to utilize the async/await syntax,
 
 How to send requests to a server using an API key,
