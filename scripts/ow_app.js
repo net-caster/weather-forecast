@@ -35,19 +35,6 @@ const pressureDisplay = document.getElementById('pressure');
 const windSpeed = document.getElementById('windSpeed');
 const windDirection = document.getElementById('windDirection');
 
-/* -------------- Define request object ----------------- */
-
-// const myInit = {
-//     method: 'GET',
-//     header: {
-//         'Content-Type': 'application/json'
-//     },
-//     mode: 'cors',
-//     cache: 'default'
-// };
-
-// let myRequest = new Request('cities/find.json', myInit);
-
 /* -------------- Search and list user input --------------- */
 
 async function getLocationList(field) {
@@ -83,37 +70,16 @@ async function getLocationList(field) {
         errorDiv.style.display = 'none';
     }
 
-    console.log(data);
-
     chooseCity();
-}
-
-/* ------------- Choose city ID on click --------------- */
-
-const chooseCity = () => {
-
-    for (let i = 0; i < cityList.children.length; i++) {
-        let city = cityList.children[i];
-        if (cityList.childElementCount === 1) {
-            cityList.innerHTML = "";
-            displayData(city.id);
-        }
-        city.addEventListener('click', () => {
-            cityList.innerHTML = "";
-            displayData(city.id);
-        });
-    }
 }
 
 /* --------------- Display weather data from openWeatherMap.org -----------------*/
 
-async function displayData(idNum) {
+async function displayCityInfo(idNum) {
 
     const response = await fetch(`${apiUrlId}${idNum}${apiKey}&units=metric`);
 
     const city = await response.json();
-
-    console.log(city);
 
     const { temp, pressure, humidity, temp_min, temp_max } = city.main;
     const { description, icon } = city.weather[0];
@@ -136,6 +102,24 @@ async function displayData(idNum) {
     windDirection.textContent = `${deg}`;
 
     weatherBox.style.display = 'flex';
+
+}
+
+/* ------------- Choose city ID on click --------------- */
+
+const chooseCity = () => {
+
+    for (let i = 0; i < cityList.children.length; i++) {
+        let city = cityList.children[i];
+        if (cityList.childElementCount === 1) {
+            cityList.innerHTML = "";
+            displayCityInfo(city.id);
+        }
+        city.addEventListener('click', () => {
+            cityList.innerHTML = "";
+            displayCityInfo(city.id);
+        });
+    }
 }
 
 /* -------------- Execute search on "Enter" --------------- */
