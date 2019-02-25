@@ -10,7 +10,8 @@ const errorDiv = document.querySelector('div.error-div');
 /* ---------- Store API information ----------- */
 
 const apiKey = '&APPID=2359672f89e1414ca7dce9d3017adc69';
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?id=`;
+const apiUrlList = `https://api.openweathermap.org/data/2.5/find?q=`;
+const apiUrlId = `https://api.openweathermap.org/data/2.5/weather?id=`;
 const iconUrl = 'http://openweathermap.org/img/w/';
 
 /* ------------- Set info-box variables --------------- */
@@ -36,24 +37,20 @@ const windDirection = document.getElementById('windDirection');
 
 /* -------------- Define request object ----------------- */
 
-const myInit = {
-    method: 'GET',
-    header: {
-        'Content-Type': 'application/json'
-    },
-    mode: 'cors',
-    cache: 'default'
-};
+// const myInit = {
+//     method: 'GET',
+//     header: {
+//         'Content-Type': 'application/json'
+//     },
+//     mode: 'cors',
+//     cache: 'default'
+// };
 
-let myRequest = new Request('cities/city.list.json', myInit);
+// let myRequest = new Request('cities/find.json', myInit);
 
 /* -------------- Search and list user input --------------- */
 
-async function getCity(field) {
-
-    const response = await fetch(myRequest);
-
-    const data = await response.json();
+async function getLocationList(field) {
 
     const regex = /\b(?!de|under|upon|la|in|on\b)[a-z]+/ig;
 
@@ -61,14 +58,18 @@ async function getCity(field) {
         return match.charAt(0).toUpperCase() + match.slice(1);
     });
 
-    data.forEach(obj => {
+    const response = await fetch(`${apiUrlList}${value}${apiKey}&units=metric`);
+
+    const data = await response.json();
+
+    data.list.forEach(obj => {
 
         for (let prop in obj) {
 
             let elem = document.createElement('li');
 
             if (value === obj[prop] && value !== "") {
-                elem.textContent = `${obj[prop]}, ${obj.country}`;
+                elem.textContent = `${obj[prop]}, ${obj.sys.country}`;
                 elem.setAttribute('id', obj.id);
                 cityList.appendChild(elem);
             }
@@ -82,6 +83,8 @@ async function getCity(field) {
         errorDiv.style.display = 'none';
     }
 
+    console.log(data);
+
     chooseCity();
 }
 
@@ -93,32 +96,31 @@ const chooseCity = () => {
         let city = cityList.children[i];
         if (cityList.childElementCount === 1) {
             cityList.innerHTML = "";
-            pullData(city.id);
+            displayData(city.id);
         }
         city.addEventListener('click', () => {
-            let cityId = city.id;
             cityList.innerHTML = "";
-            pullData(cityId);
+            displayData(city.id);
         });
     }
 }
 
-/* --------------- Pull weather data from openWeatherMap.org -----------------*/
+/* --------------- Display weather data from openWeatherMap.org -----------------*/
 
-async function pullData(city) {
+async function displayData(idNum) {
 
-    const response = await fetch(`${apiUrl}${city}${apiKey}&units=metric`);
+    const response = await fetch(`${apiUrlId}${idNum}${apiKey}&units=metric`);
 
-    const data = await response.json();
+    const city = await response.json();
 
-    console.log(data);
+    console.log(city);
 
-    const { temp, pressure, humidity, temp_min, temp_max } = data.main;
-    const { description, icon } = data.weather[0];
-    const { speed, deg } = data.wind;
-    const { country } = data.sys;
+    const { temp, pressure, humidity, temp_min, temp_max } = city.main;
+    const { description, icon } = city.weather[0];
+    const { speed, deg } = city.wind;
+    const { country } = city.sys;
 
-    cityLocation.textContent = `${data.name}, ${country}`;
+    cityLocation.textContent = `${city.name}, ${country}`;
     iconCanvas.setAttribute('src', `${iconUrl}${icon}.png`);
     tempDisplay.textContent = Math.floor(temp);
 
@@ -134,7 +136,6 @@ async function pullData(city) {
     windDirection.textContent = `${deg}`;
 
     weatherBox.style.display = 'flex';
-
 }
 
 /* -------------- Execute search on "Enter" --------------- */
@@ -146,7 +147,7 @@ const executeSearch = field => {
         if (event.keyCode === 13) {
             weatherBox.style.display = 'none';
             cityList.innerHTML = "";
-            getCity(field);
+            getLocationList(field);
         }
     });
 };
