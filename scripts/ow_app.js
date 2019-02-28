@@ -90,8 +90,8 @@ async function displayCityInfo(idNum) {
     iconCanvas.setAttribute('src', `${iconUrl}${icon}.png`);
     tempDisplay.textContent = Math.floor(temp);
 
-    maxTemp.textContent = `${temp_max}`;
-    minTemp.textContent = `${temp_min}`;
+    maxTemp.textContent = Math.floor(temp_max);
+    minTemp.textContent = Math.floor(temp_min);
 
     summary.textContent = `${description}`;
 
