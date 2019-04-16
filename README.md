@@ -15,6 +15,6 @@ How to retrieve the relevant information from the JSON file and display it on th
 
 ---
 
-*Edit*
+*Edit:*
 
 Rewrote the app with template literals and added temperature conversion function.
