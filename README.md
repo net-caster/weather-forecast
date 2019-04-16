@@ -12,3 +12,9 @@ How to send requests to a server using an API key,
 How to pull information from the server in the form of a JSON file,
 
 How to retrieve the relevant information from the JSON file and display it on the page.
+
+---
+
+*Edit*
+
+Rewrote the app with template literals and added temperature conversion function.
