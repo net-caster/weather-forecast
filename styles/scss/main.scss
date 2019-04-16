@@ -1,281 +1,228 @@
-@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC');
-@import url('https://fonts.googleapis.com/css?family=Staatliches');
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed|Noto+Sans+SC|Staatliches');
 //--------------------------------------------------------------------------
-$main-font: 'Noto Sans SC',
-sans-serif;
-$title-font: 'Saira Extra Condensed',
-sans-serif;
-$degrees: 'Staatliches',
-cursive;
+$main-font: 'Noto Sans SC', sans-serif;
+$title-font: 'Saira Extra Condensed', sans-serif;
+$degrees: 'Staatliches', cursive;
 //--------------------------------------------------------------------------
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: rgb(238, 238, 238);
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background: rgb(27, 27, 27);
-    font-family: $main-font;
+	background: rgb(27, 27, 27);
+	font-family: $main-font;
+	font-size: 18px;
+}
+
+main {
+	min-height: 100%;
 }
 
 header {
-    position: absolute;
-    height: 40px;
-    width: 100%;
-    background: rgb(255, 123, 0);
-    text-align: center;
-    top: 0;
-    & .instructions {
-        font-size: 18px;
-        position: relative;
-        top: 5px;
-        color: black;
-    }
+	position: absolute;
+	height: 40px;
+	width: 100%;
+	background: rgb(255, 123, 0);
+	text-align: center;
+	top: 0;
+	& .instructions {
+		font-size: 18px;
+		position: relative;
+		top: 5px;
+		color: black;
+	}
+}
+
+.input-container {
+	position: relative;
+	top: 4em;
+	text-align: center;
+	z-index: 1;
+}
+
+input {
+	padding: 10px 20px;
+	text-align: center;
+	border: 2px solid rgb(255, 123, 0);
+	border-radius: 5px;
+	width: 180px;
+	transition: all 0.2s ease;
+	&:active {
+		outline: none;
+	}
+	&:focus {
+		width: 300px;
+		outline: none;
+		border-radius: 25px;
+	}
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 .list-container {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    padding-bottom: 50px;
-    top: 200px;
-    & ul {
-        list-style: none;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: rgb(46, 24, 0);
-        line-height: 2rem;
-        width: 300px;
-        text-align: center;
-        & li {
-            padding: 5px;
-            background: rgb(235, 235, 235);
-            border-radius: 2px;
-            margin-bottom: 10px;
-            color: black;
-            border: 1px solid rgba(0, 0, 0, 0);
-            transition: all ease 0.1s;
-            &:hover {
-                cursor: pointer;
-                color: rgb(255, 155, 49);
-                background: black;
-                border: 1px solid rgb(255, 123, 0);
-            }
-        }
-    }
-    & .error-div {
-        position: absolute;
-        background: rgb(228, 228, 228);
-        border-radius: 5px;
-        font-family: $main-font;
-        font-weight: 600;
-        padding: 20px;
-        display: none;
-        & #error {
-            color: black;
-        }
-    }
+	position: relative;
+	top: 4em;
 }
 
-input[type="text"] {
-    position: absolute;
-    border: 0;
-    width: 200px;
-    font-family: $main-font;
-    font-weight: 600;
-    text-align: center;
-    padding: 10px 0;
-    border-radius: 25px;
-    border: 2px solid rgb(255, 123, 0);
-    transition: all ease 0.3s;
-    transform: translate(0, 250%);
-    color: black;
-    z-index: 1;
-    &:focus {
-        width: 280px;
-        outline: none;
-    }
+.locations-list {
+	position: relative;
+	list-style: none;
+}
+
+.locations-list li {
+	padding: 10px 20px;
+	margin: 20px 0;
+	background-color: #ebebeb;
+	border: 2px solid #000;
+	border-radius: 3px;
+	&:hover {
+		cursor: pointer;
+		background-color: #000;
+		color: rgb(255, 123, 0);
+		border-color: rgb(255, 123, 0);
+	}
 }
 
 .weather-container {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 30px;
-    height: 600px;
-    top: 120px;
-    & #weather-info {
-        position: absolute;
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        color: rgb(12, 12, 12);
-        top: 10%;
-        & .title-div {
-            font-family: $title-font;
-            font-size: 1.5em;
-            width: 400px;
-            line-height: 3.5rem;
-            margin-bottom: 20px;
-            & h1.title {
-                text-align: center;
-            }
-            & #location {
-                color: rgb(255, 123, 0);
-            }
-        }
-        & .info-div {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            border-radius: 2px;
-            height: 400px;
-            width: 400px;
-            font-size: 18px;
-            top: 100%;
-            & .temp-container {
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 10px;
-                height: 120px;
-                width: 200px;
-                font-family: $degrees;
-                & h2#temp {
-                    font-size: 3em;
-                    font-weight: 500;
-                    // cursor: pointer;
-                }
-                & span#symbol {
-                    margin-bottom: 20px;
-                    margin-left: 5px;
-                    font-size: 2.5em;
-                }
-                span#degree {
-                    margin-bottom: 20px;
-                    margin-left: 5px;
-                    font-size: 2em;
-                }
-                & #icon {
-                    width: 50px;
-                    height: 50px;
-                    background: 100%;
-                    margin-right: 10px;
-                }
-            }
-            & .min-and-max {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-content: center;
-                padding: 10px;
-                height: 120px;
-                width: 200px;
-                & p {
-                    line-height: 3em;
-                }
-                & span {
-                    margin-left: 20px;
-                }
-                & .minmax {
-                    color: gray;
-                }
-            }
-            & .description-container {
-                position: absolute;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 50px;
-                width: 400px;
-                top: 30%;
-            }
-            & .misc-container {
-                position: absolute;
-                display: inline-flex;
-                justify-content: center;
-                align-content: center;
-                top: 45%;
-                line-height: 1.5em;
-                & .info-1-container {
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    width: 200px;
-                    height: 150px;
-                    text-align: center;
-                    margin-bottom: 20px;
-                    & p#humidity {
-                        // border-bottom: 1px solid rgb(0, 0, 0);
-                        padding-bottom: 15px;
-                    }
-                }
-                & .info-2-container {
-                    position: relative;
-                    display: flex;
-                    flex-direction: column;
-                    width: 200px;
-                    height: 150px;
-                    text-align: center;
-                    & p#pressure {
-                        // border-bottom: 1px solid rgb(0, 0, 0);
-                        padding-bottom: 15px;
-                    }
-                }
-                & p.misc-p {
-                    padding-top: 20px;
-                    color: gray;
-                }
-            }
-        }
-    }
+	position: relative;
+	top: 6em;
+	color: #fff;
+	margin-bottom: 50px;
+}
+
+.weather-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.weather-info__title {
+	font-family: $title-font;
+	font-size: 3rem;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.weather-info__temp {
+	position: relative;
+	display: inline-flex;
+	justify-content: space-evenly;
+}
+
+.weather-info__location {
+	color: rgb(255, 123, 0);
+}
+
+.temp-container {
+	display: flex;
+	height: 100%;
+	font-family: $degrees;
+}
+
+.icon {
+	margin-right: 10px;
+	height: 50px;
+	width: 50px;
+}
+
+.minmax-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.minmax,
+.misc-p {
+	margin: 10px 0;
+	color: #a5a5a5;
+	text-align: center;
+}
+
+.min-temp,
+.max-temp {
+	color: #fff;
+}
+
+.temperature {
+	font-size: 3rem;
+	font-weight: 500;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.symbol,
+.degree {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-left: 5px;
+}
+
+.weather-info__description {
+	text-align: center;
+	padding: 20px 0;
+}
+
+.weather-info__misc {
+	display: flex;
+	justify-content: space-around;
+}
+
+.humidity,
+.windSpeed,
+.pressure,
+.windDirection {
+	text-align: center;
+}
+
+.error-message {
+	position: relative;
+	top: 3em;
+	padding: 15px 30px;
+	background-color: #be9494;
+	border: 2px solid #5f1010;
+	color: #000;
+	border-radius: 5px;
 }
 
 footer {
-    position: fixed;
-    height: 30px;
-    width: 100%;
-    background: rgb(255, 123, 0);
-    bottom: 0;
-    text-align: center;
-    & span {
-        color: black;
-        font-size: 12px;
-    }
-    & a {
-        color: white;
-        text-decoration: none;
-    }
-    & #owm-link {
-        margin: 0;
-    }
+	position: fixed;
+	height: 30px;
+	width: 100%;
+	background: rgb(255, 123, 0);
+	bottom: 0;
+	text-align: center;
+	& span {
+		color: black;
+		font-size: 12px;
+	}
+	& a {
+		color: white;
+		text-decoration: none;
+	}
+	& .owm-link {
+		margin: 0;
+	}
 }
 
-@media only screen and (max-width: 1100px) {
-    header {
-        display: none;
-    }
-    input[type="text"] {
-        transform: translate(0, 150%);
-    }
-    .list-container {
-        top: 150px;
-    }
-    .weather-container {
-        top: 80px;
-    }
+@media (max-width: 414px) {
+	header {
+		display: none;
+	}
+	.input-container {
+		top: 1.5em;
+	}
+	.list-container {
+		top: 2em;
+	}
+	.weather-container {
+		top: 2em;
+	}
 }

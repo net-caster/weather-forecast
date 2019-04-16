@@ -1,16 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed");
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC");
-@import url("https://fonts.googleapis.com/css?family=Staatliches");
+@import url("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed|Noto+Sans+SC|Staatliches");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #eeeeee;
 }
 
 body {
   background: #1b1b1b;
   font-family: "Noto Sans SC", sans-serif;
+  font-size: 18px;
+}
+
+main {
+  min-height: 100%;
 }
 
 header {
@@ -28,7 +30,32 @@ header .instructions {
   color: black;
 }
 
+.input-container {
+  position: relative;
+  top: 4em;
+  text-align: center;
+  z-index: 1;
+}
+
+input {
+  padding: 10px 20px;
+  text-align: center;
+  border: 2px solid #ff7b00;
+  border-radius: 5px;
+  width: 180px;
+  transition: all 0.2s ease;
+}
+input:active {
+  outline: none;
+}
+input:focus {
+  width: 300px;
+  outline: none;
+  border-radius: 25px;
+}
+
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -36,202 +63,128 @@ header .instructions {
 }
 
 .list-container {
-  display: flex;
-  position: absolute;
-  justify-content: center;
-  padding-bottom: 50px;
-  top: 200px;
-}
-.list-container ul {
-  list-style: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #2e1800;
-  line-height: 2rem;
-  width: 300px;
-  text-align: center;
-}
-.list-container ul li {
-  padding: 5px;
-  background: #ebebeb;
-  border-radius: 2px;
-  margin-bottom: 10px;
-  color: black;
-  border: 1px solid rgba(0, 0, 0, 0);
-  transition: all ease 0.1s;
-}
-.list-container ul li:hover {
-  cursor: pointer;
-  color: #ff9b31;
-  background: black;
-  border: 1px solid #ff7b00;
-}
-.list-container .error-div {
-  position: absolute;
-  background: #e4e4e4;
-  border-radius: 5px;
-  font-family: "Noto Sans SC", sans-serif;
-  font-weight: 600;
-  padding: 20px;
-  display: none;
-}
-.list-container .error-div #error {
-  color: black;
+  position: relative;
+  top: 4em;
 }
 
-input[type=text] {
-  position: absolute;
-  border: 0;
-  width: 200px;
-  font-family: "Noto Sans SC", sans-serif;
-  font-weight: 600;
-  text-align: center;
-  padding: 10px 0;
-  border-radius: 25px;
-  border: 2px solid #ff7b00;
-  transition: all ease 0.3s;
-  transform: translate(0, 250%);
-  color: black;
-  z-index: 1;
+.locations-list {
+  position: relative;
+  list-style: none;
 }
-input[type=text]:focus {
-  width: 280px;
-  outline: none;
+
+.locations-list li {
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #ebebeb;
+  border: 2px solid #000;
+  border-radius: 3px;
+}
+.locations-list li:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #ff7b00;
+  border-color: #ff7b00;
 }
 
 .weather-container {
-  position: absolute;
+  position: relative;
+  top: 6em;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.weather-info {
   display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
-  height: 600px;
-  top: 120px;
-}
-.weather-container #weather-info {
-  position: absolute;
-  display: none;
   flex-direction: column;
-  text-align: center;
-  align-items: center;
-  color: #0c0c0c;
-  top: 10%;
 }
-.weather-container #weather-info .title-div {
+
+.weather-info__title {
   font-family: "Saira Extra Condensed", sans-serif;
-  font-size: 1.5em;
-  width: 400px;
-  line-height: 3.5rem;
-  margin-bottom: 20px;
-}
-.weather-container #weather-info .title-div h1.title {
+  font-size: 3rem;
+  margin-bottom: 30px;
   text-align: center;
 }
-.weather-container #weather-info .title-div #location {
+
+.weather-info__temp {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+.weather-info__location {
   color: #ff7b00;
 }
-.weather-container #weather-info .info-div {
-  position: absolute;
+
+.temp-container {
   display: flex;
-  justify-content: center;
-  align-content: center;
-  border-radius: 2px;
-  height: 400px;
-  width: 400px;
-  font-size: 18px;
-  top: 100%;
-}
-.weather-container #weather-info .info-div .temp-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  height: 120px;
-  width: 200px;
+  height: 100%;
   font-family: "Staatliches", cursive;
 }
-.weather-container #weather-info .info-div .temp-container h2#temp {
-  font-size: 3em;
+
+.icon {
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.minmax-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.minmax,
+.misc-p {
+  margin: 10px 0;
+  color: #a5a5a5;
+  text-align: center;
+}
+
+.min-temp,
+.max-temp {
+  color: #fff;
+}
+
+.temperature {
+  font-size: 3rem;
   font-weight: 500;
 }
-.weather-container #weather-info .info-div .temp-container span#symbol {
-  margin-bottom: 20px;
+.temperature:hover {
+  cursor: pointer;
+}
+
+.symbol,
+.degree {
+  font-size: 2rem;
+  font-weight: bold;
   margin-left: 5px;
-  font-size: 2.5em;
 }
-.weather-container #weather-info .info-div .temp-container span#degree {
-  margin-bottom: 20px;
-  margin-left: 5px;
-  font-size: 2em;
-}
-.weather-container #weather-info .info-div .temp-container #icon {
-  width: 50px;
-  height: 50px;
-  background: 100%;
-  margin-right: 10px;
-}
-.weather-container #weather-info .info-div .min-and-max {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  padding: 10px;
-  height: 120px;
-  width: 200px;
-}
-.weather-container #weather-info .info-div .min-and-max p {
-  line-height: 3em;
-}
-.weather-container #weather-info .info-div .min-and-max span {
-  margin-left: 20px;
-}
-.weather-container #weather-info .info-div .min-and-max .minmax {
-  color: gray;
-}
-.weather-container #weather-info .info-div .description-container {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 400px;
-  top: 30%;
-}
-.weather-container #weather-info .info-div .misc-container {
-  position: absolute;
-  display: inline-flex;
-  justify-content: center;
-  align-content: center;
-  top: 45%;
-  line-height: 1.5em;
-}
-.weather-container #weather-info .info-div .misc-container .info-1-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 150px;
+
+.weather-info__description {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 20px 0;
 }
-.weather-container #weather-info .info-div .misc-container .info-1-container p#humidity {
-  padding-bottom: 15px;
-}
-.weather-container #weather-info .info-div .misc-container .info-2-container {
-  position: relative;
+
+.weather-info__misc {
   display: flex;
-  flex-direction: column;
-  width: 200px;
-  height: 150px;
+  justify-content: space-around;
+}
+
+.humidity,
+.windSpeed,
+.pressure,
+.windDirection {
   text-align: center;
 }
-.weather-container #weather-info .info-div .misc-container .info-2-container p#pressure {
-  padding-bottom: 15px;
-}
-.weather-container #weather-info .info-div .misc-container p.misc-p {
-  padding-top: 20px;
-  color: gray;
+
+.error-message {
+  position: relative;
+  top: 3em;
+  padding: 15px 30px;
+  background-color: #be9494;
+  border: 2px solid #5f1010;
+  color: #000;
+  border-radius: 5px;
 }
 
 footer {
@@ -250,25 +203,25 @@ footer a {
   color: white;
   text-decoration: none;
 }
-footer #owm-link {
+footer .owm-link {
   margin: 0;
 }
 
-@media only screen and (max-width: 1100px) {
+@media (max-width: 414px) {
   header {
     display: none;
   }
 
-  input[type=text] {
-    transform: translate(0, 150%);
+  .input-container {
+    top: 1.5em;
   }
 
   .list-container {
-    top: 150px;
+    top: 2em;
   }
 
   .weather-container {
-    top: 80px;
+    top: 2em;
   }
 }
 
